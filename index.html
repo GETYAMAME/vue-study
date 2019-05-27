@@ -6,10 +6,27 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<link rel="stylesheet" type="text/css" href="./main.css">
 </head>
 <body>
   <div id="app">
+		<ol>
+			<li v-for="item in list">{{ item }}</li>
+		</ol>
+		<button v-on:click="handleClick">Click</button>
 		<p>{{ message }}</p>
+		<input v-model="message">
+		<input type="text" name="aa" :value="val">
+		<transition>
+			<p v-if="show">Hello vue.js</p>
+		</transition>
+		<p :class="classObject">test1</p>
+		<p :style="styleObject">test2</p>
+		<img v-bind="item" v-bind:id="'thumb-' + item.id">
+		<svg xmlns="https://www.w3.org/2000/svg" version="1.1">
+			<circle cx="100" cy="75" v-bind:r="radius" fill="lightpink"/>
+		</svg>
+		<input type="range" min="0" max="100" v-model="radius">
   </div>
 	<!-- htmlを読み込んだ後に、処理を行うjsファイルを読み込むように設定-->
 	<script src="./main.js"></script>
